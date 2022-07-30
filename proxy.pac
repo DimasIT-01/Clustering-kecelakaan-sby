@@ -1,15 +1,6 @@
 function FindProxyForURL(url, host) {
-    var httpsProxy = "HTTPS gbf-proxy.kogane.moe:443";
-    if (dnsDomainIs(host, ".mobage.jp")) {
-        return httpsProxy;
-    } else if (dnsDomainIs(host, ".granbluefantasy.jp")) {
-        if (host.startsWith("game")) {
-            return httpsProxy;
-        }
-    } else if (dnsDomainIs(host, ".mbga.jp")) {
-        if (host.startsWith("gbf.game")) {
-            return httpsProxy;
-        }
+    if (dnsDomainIs(host, ".granbluefantasy.jp")) {
+        return "PROXY gbf-proxy.kogane.moe:8088";
     }
     return "DIRECT";
 }
